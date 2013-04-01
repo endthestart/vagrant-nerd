@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   # doesn't already exist on the user's system.
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
-  # The hostname of the box. If left unset, it will default to nil. 
+  # The hostname of the box. If left unset, it will default to nil.
   # If set to a string, the hostname will be set on boot.
   # config.vm.hostname = "project_name"
 
@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
   #
   config.vm.provision :puppet do |puppet|
     #puppet.manifests_path = "manifests"
-    puppet.manifest_file  = "default.pp"
+    puppet.manifest_file  = "django.pp"
     puppet.module_path    = "modules"
     puppet.options = "--verbose --debug"
   end

@@ -1,3 +1,3 @@
 group { 'puppet': ensure => 'present' }
 
-import 'nodes.pp'
+import 'django.pp'
