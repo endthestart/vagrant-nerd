@@ -3,6 +3,7 @@ group { 'puppet': ensure => 'present' }
 include apt
 include vim
 include apache
+include apache::mod::php
 #include mysql
 
 apache::vhost { 'localhost':
