@@ -1,5 +1,6 @@
 group { 'puppet': ensure => 'present' }
 
+# --- Preinstall Stage
 
 stage { 'preinstall':
   before => Stage['main']
@@ -9,6 +10,8 @@ class { 'apt':
   always_apt_update => true,
   stage => preinstall
 }
+
+# --- Apache
 
 class { 'apache': }
 class { 'apache::mod::php': }
@@ -24,6 +27,8 @@ apache::vhost { 'localhost':
   configure_firewall => false,
 }
 
+# --- MySQL
+
 class { 'mysql': }
 class { 'mysql::php': }
 class { 'mysql::server':
@@ -36,5 +41,7 @@ mysql::db { 'nerddb':
   host => 'localhost',
   grant => ['all'],
 }
+
+# --- Development Tools
 
 include vim
